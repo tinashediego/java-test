@@ -1,4 +1,4 @@
-package com.musala.javatest.entity;
+package com.musala.javatest.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,16 +12,15 @@ import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 @Data
-@Entity
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class Medication {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @NotNull private Long id;
-    private String name;
-    private BigDecimal weight;
-    private String code;
-    private String imageUrl;
+public class MedicationDto {
+
+    private Long id;
+    @NotNull private String name;
+    @NotNull private BigDecimal weight;
+    @NotNull private String code;
+    @NotNull private String imageUrl;
+
 }
