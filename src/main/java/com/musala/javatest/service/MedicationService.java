@@ -14,7 +14,7 @@ public class MedicationService {
     public void createMedication(Medication medication) {
         medicationRepository.save(medication);
     }
-    public List<Medication> listCategory() {
+    public List<Medication> listMedication() {
         return medicationRepository.findAll();
     }
     public Optional<Medication> findOne(long medicationId) {
