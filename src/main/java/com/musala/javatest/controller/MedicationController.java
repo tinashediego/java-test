@@ -17,16 +17,16 @@ public class MedicationController {
     @Autowired
     MedicationService medicationService;
     @PostMapping("/create")
-    public ResponseEntity<ApiResponse> createCategory(@RequestBody Medication medication) {
+    public ResponseEntity<ApiResponse> createMedication(@RequestBody Medication medication) {
         medicationService.createMedication(medication);
         return new ResponseEntity<>(new ApiResponse(true, "New medication created"), HttpStatus.CREATED);
     }
     @GetMapping("/")
-    public List<Medication> listCategory() {
+    public List<Medication> listMedication() {
         return medicationService.listMedication();
     }
     @GetMapping("/findById/{medicationId}")
-    public Optional<Medication> oneCategory(@PathVariable("categoryId") long medicationId) {
+    public Optional<Medication> oneMedication(@PathVariable("medicationId") long medicationId) {
         return medicationService.findOne(medicationId);
     }
     @PutMapping("/update/{medicationId}")
@@ -38,7 +38,7 @@ public class MedicationController {
         medicationService.editMedication(medicationId, medication);
         return new ResponseEntity<ApiResponse>(new ApiResponse(true, "Medication has been updated"), HttpStatus.OK);
     }
-    @DeleteMapping("/delete/{categoryId}")
+    @DeleteMapping("/delete/{medicationId}")
     public ResponseEntity<ApiResponse> deleteMedication(@PathVariable("medicationId") long medicationId){
         medicationService.removeMedication(medicationId);
         return new ResponseEntity<ApiResponse>(new ApiResponse(true, "Medication has been deleted"), HttpStatus.OK);
