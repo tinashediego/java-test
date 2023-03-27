@@ -20,17 +20,17 @@ public class SwaggerConfig {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(getApiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.educative.ecommerce"))
+                .apis(RequestHandlerSelectors.basePackage("com.musala.java-test"))
                 .paths(PathSelectors.any())
                 .build();
     }
 
     private ApiInfo getApiInfo() {
-        Contact contact = new Contact("tinlee", "http://tinashediego.netlify.com", "tinashediego@gmail.com");
+        Contact contact = new Contact("winner diego", "http://tinashediego.netlify.com", "tinashediego@gmail.com");
         return new ApiInfoBuilder()
-                .title("Ecommerce API")
-                .description("Documentation Ecommerce api")
-                .version("1.0.0")
+                .title("REST API")
+                .description("Documentation Rest api")
+                .version("2.0.0")
                 .license("Apache 2.0")
                 .licenseUrl("http://www.apache.org/licenses/LICENSE-2.0")
                 .contact(contact)

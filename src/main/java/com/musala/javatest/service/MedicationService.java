@@ -3,10 +3,12 @@ package com.musala.javatest.service;
 import com.musala.javatest.entity.Medication;
 import com.musala.javatest.repository.MedicationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class MedicationService {
     @Autowired
     MedicationRepository medicationRepository;
