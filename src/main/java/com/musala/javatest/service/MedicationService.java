@@ -25,19 +25,6 @@ public class MedicationService {
         medicationRepository.save(medication);
     }
 
-    /*public void editMedication(MedicationDto medicationDto, Long medicationId) throws Exception {
-        Optional<Medication> optionalMedication = medicationRepository.findById(medicationId);
-        // throw an exception if product does not exists
-        if (!optionalMedication.isPresent()) {
-            throw new Exception("Medication not present");
-        }
-        Medication medication = optionalMedication.get();
-        medication.setName(medicationDto.getName());
-        medication.setImageUrl(medicationDto.getImageUrl());
-        medication.setWeight(medicationDto.getWeight());
-        medication.setCode(medicationDto.getCode());
-        medicationRepository.save(medication);
-    }*/
     public MedicationDto getMedicationDto(Medication medication) {
         MedicationDto medicationDto = new MedicationDto();
         medicationDto.setImageUrl(medication.getImageUrl());
