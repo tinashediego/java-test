@@ -1,5 +1,6 @@
 package com.musala.javatest.dto;
 
+import com.musala.javatest.entity.Model;
 import com.musala.javatest.entity.State;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,7 +20,7 @@ public class DroneDto {
     @NotNull
     private String serialNumber;
     @NotNull private BigDecimal weight;
-    @NotNull private Long modelId;
-    @NotNull private Long stateId;
+    @NotNull private ModelDto model;
+    @NotNull private StateDto state;
     @NotNull private Integer batteryCapacity;
 }

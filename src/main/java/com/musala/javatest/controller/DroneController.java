@@ -28,8 +28,8 @@ public class DroneController {
 
     @PostMapping
     public ResponseEntity<ApiResponse> createDrone(@RequestBody DroneDto droneDto) {
-        Optional<State> optionalState = stateRepository.findById(droneDto.getStateId());
-        Optional<Model> optionalModel = modelRepository.findById(droneDto.getModelId());
+        Optional<State> optionalState = stateRepository.findById(droneDto.getState().getId());
+        Optional<Model> optionalModel = modelRepository.findById(droneDto.getModel().getId());
         if (!optionalState.isPresent()) {
             return new ResponseEntity<ApiResponse>(new ApiResponse(false, "State does not exists"), HttpStatus.BAD_REQUEST);
         }

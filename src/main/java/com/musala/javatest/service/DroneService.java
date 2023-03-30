@@ -5,6 +5,7 @@ import com.musala.javatest.entity.Drone;
 import com.musala.javatest.entity.Model;
 import com.musala.javatest.entity.State;
 import com.musala.javatest.repository.DroneRepository;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +18,8 @@ public class DroneService {
     @Autowired
     DroneRepository droneRepository;
 
+    @Autowired
+    ModelMapper mapper;
     public void createDrone(DroneDto droneDto, Model model, State state) {
         Drone drone = new Drone();
         drone.setSerialNumber(droneDto.getSerialNumber());
@@ -24,23 +27,11 @@ public class DroneService {
         drone.setState(state);
         drone.setWeight(droneDto.getWeight());
         drone.setBatteryCapacity(droneDto.getBatteryCapacity());
-        drone.setModel(model);
-        drone.setState(state);
         droneRepository.save(drone);
     }
 
     public DroneDto getDroneDto(Drone drone) {
-        DroneDto droneDto = new DroneDto();
-        //productDto.setCategoryId(product.getCategory().getId());
-        droneDto.setStateId(drone.getState().getId());
-        droneDto.setSerialNumber(drone.getSerialNumber());
-        droneDto.setModelId(drone.getModel().getId());
-        droneDto.setWeight(drone.getWeight());
-        droneDto.setBatteryCapacity(drone.getBatteryCapacity());
-        droneDto.setId(drone.getId());
-        droneDto.setModelId(drone.getModel().getId());
-        droneDto.setStateId(drone.getState().getId());
-        return droneDto;
+        return mapper.map(drone, DroneDto.class);
     }
     public List<DroneDto> getAllDrones() {
         List<Drone> allDrones = droneRepository.findAll();
