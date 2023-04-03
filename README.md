@@ -1,5 +1,5 @@
 # java-test
-Java admission test at Musala Soft
+Java practice
 
 
 Technologies used
