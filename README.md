@@ -1,8 +1,8 @@
-# java-test
-Java practice
+# java
+# Java practice
 
 
-Technologies used
+ # Technologies used
 
 Spring boot 2.7
 Maven 3 and above
